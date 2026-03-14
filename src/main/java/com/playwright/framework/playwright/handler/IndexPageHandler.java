@@ -13,15 +13,13 @@ public class IndexPageHandler extends BasePageHandler {
 
     private final IndexPage indexPage;
 
-    protected IndexPageHandler(final ParabankConfig parabankConfig,
-                               final IndexPage indexPage,
-                               final PwFactory pwFactory) {
+    protected IndexPageHandler(final ParabankConfig parabankConfig, final IndexPage indexPage, final PwFactory pwFactory) {
         super(parabankConfig, pwFactory);
         this.indexPage = indexPage;
     }
 
     @Override
     public boolean isAt() {
-        return indexPage.getLoginButton().isVisible();
+        return false;
     }
 }

@@ -11,8 +11,7 @@ public class ParabankPageStore {
     private final IndexPageHandler    indexPageHandler;
     private final RegisterPageHandler registerPageHandler;
 
-    public ParabankPageStore(final IndexPageHandler loginPageHandler,
-                             final RegisterPageHandler registerPageHandler) {
+    public ParabankPageStore(final IndexPageHandler loginPageHandler, final RegisterPageHandler registerPageHandler) {
         this.indexPageHandler    = loginPageHandler;
         this.registerPageHandler = registerPageHandler;
     }

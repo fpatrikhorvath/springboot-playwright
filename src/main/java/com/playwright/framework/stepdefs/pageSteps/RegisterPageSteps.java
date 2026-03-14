@@ -11,8 +11,7 @@ import io.cucumber.java.en.When;
 
 public class RegisterPageSteps extends TestCore {
 
-    public RegisterPageSteps(final ScenarioContext scenarioContext,
-                             final ParabankPageStore parabankPageStore) {
+    public RegisterPageSteps(final ScenarioContext scenarioContext, final ParabankPageStore parabankPageStore) {
         super(scenarioContext, parabankPageStore);
     }
 

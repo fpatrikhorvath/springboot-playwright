@@ -15,16 +15,14 @@ import java.util.NoSuchElementException;
 @ScenarioScope
 @Service
 public class RegisterPageHandler extends BasePageHandler {
-    private static final Logger               LOG       = LogManager.getLogger(RegisterPageHandler.class);
-    private static  final      String               PAGE_NAME = "register";
+    private static final Logger LOG       = LogManager.getLogger(RegisterPageHandler.class);
+    private static final String PAGE_NAME = "register";
 
-    private final        RegisterPage         registerPage;
-    private final        ExtendedFakerService fakerService;
+    private final RegisterPage         registerPage;
+    private final ExtendedFakerService fakerService;
 
-    protected RegisterPageHandler(final ParabankConfig parabankConfig,
-                                  final RegisterPage registerPage,
-                                  final ExtendedFakerService fakerService,
-                                  final PwFactory pwFactory) {
+    protected RegisterPageHandler(final ParabankConfig parabankConfig, final RegisterPage registerPage,
+                                  final ExtendedFakerService fakerService, final PwFactory pwFactory) {
         super(parabankConfig, pwFactory);
         this.registerPage = registerPage;
         this.fakerService = fakerService;
