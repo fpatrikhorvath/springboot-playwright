@@ -30,7 +30,7 @@ public abstract class BaseForm {
         return rootElement.isVisible();
     }
 
-    public Locator getSendButton() {
-        return sendButton;
+    public void sendForm() {
+        sendButton.click();
     }
 }

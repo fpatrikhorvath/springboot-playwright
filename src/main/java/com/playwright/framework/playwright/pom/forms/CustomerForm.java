@@ -28,15 +28,13 @@ public class CustomerForm extends UpdateProfileForm {
         return ROOT_ELEMENT;
     }
 
-    public Locator getUsernameInputField() {
-        return usernameInput;
-    }
+    public void fill(final String firstName, final String lastName, final String street, final String city,
+                     final String state, final String zipCode, final String phone, final String ssn,
+                     final String username, final String password) {
+        super.fill(firstName, lastName, street, city, state, zipCode, phone, ssn);
 
-    public Locator getPasswordInputField() {
-        return passwordInput;
-    }
-
-    public Locator getPasswordAgainInputField() {
-        return passwordAgainInput;
+        usernameInput.fill(username);
+        passwordInput.fill(password);
+        passwordAgainInput.fill(password);
     }
 }

@@ -42,35 +42,15 @@ public class UpdateProfileForm extends BaseForm {
         return firstNameInput.isVisible();
     }
 
-    public Locator getFirstNameInput() {
-        return firstNameInput;
-    }
-
-    public Locator getLastNameInput() {
-        return lastNameInput;
-    }
-
-    public Locator getStreetInput() {
-        return streetInput;
-    }
-
-    public Locator getCityInput() {
-        return cityInput;
-    }
-
-    public Locator getStateInput() {
-        return stateInput;
-    }
-
-    public Locator getZipCodeInput() {
-        return zipCodeInput;
-    }
-
-    public Locator getPhoneInput() {
-        return phoneInput;
-    }
-
-    public Locator getSsnInput() {
-        return ssnInput;
+    public void fill(final String firstName, final String lastName, final String street, final String city,
+                     final String state, final String zipCode, final String phone, final String ssn) {
+        firstNameInput.fill(firstName);
+        lastNameInput.fill(lastName);
+        streetInput.fill(street);
+        cityInput.fill(city);
+        stateInput.fill(state);
+        zipCodeInput.fill(zipCode);
+        phoneInput.fill(phone);
+        ssnInput.fill(ssn);
     }
 }

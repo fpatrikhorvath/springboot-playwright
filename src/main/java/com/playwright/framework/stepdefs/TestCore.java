@@ -1,8 +1,6 @@
 package com.playwright.framework.stepdefs;
 
 import com.playwright.framework.context.ScenarioContext;
-import com.playwright.framework.playwright.handler.IndexPageHandler;
-import com.playwright.framework.playwright.handler.RegisterPageHandler;
 import com.playwright.framework.playwright.pom.IndexPage;
 import com.playwright.framework.playwright.pom.RegisterPage;
 import com.playwright.framework.stores.ParabankPageStore;
@@ -21,8 +19,7 @@ public class TestCore {
 
     private final ParabankPageStore parabankPageStore;
 
-    public TestCore(final ScenarioContext scenarioContext,
-                    final ParabankPageStore parabankPageStore) {
+    public TestCore(final ScenarioContext scenarioContext, final ParabankPageStore parabankPageStore) {
         this.scenarioContext   = scenarioContext;
         this.parabankPageStore = parabankPageStore;
     }
