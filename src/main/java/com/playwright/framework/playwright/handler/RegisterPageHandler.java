@@ -31,7 +31,7 @@ public class RegisterPageHandler extends BasePageHandler {
 
     @Override
     public boolean isAt() {
-        return registerPage.getCustomerForm().getRegisterButton().isVisible();
+        return registerPage.getCustomerForm().getSendButton().isVisible();
     }
 
     public ContextUser initContextUser() {
@@ -55,21 +55,11 @@ public class RegisterPageHandler extends BasePageHandler {
         registerPage.getCustomerForm().getRegisterButton().click();
     }
 
-    public void logOut() {
-        //todo
-    }
-
     public boolean isLogoutButtonVisible() {
        return false;
-    }
-
-
-    public String getWelcomeMessage() {
-        return "";
     }
 
     public void open() {
         pwFactory.goTo(PAGE_NAME);
     }
-
 }

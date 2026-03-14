@@ -7,50 +7,36 @@ import org.springframework.stereotype.Component;
 
 @ScenarioScope
 @Component
-public class CustomerForm extends LookUpForm {
+public class CustomerForm extends UpdateProfileForm {
 
-    private final String USERNAME_INPUT_ID       = "#customer\\.username";
-    private final String PASSWORD_INPUT_ID       = "#customer\\.password";
-    private final String PASSWORD_AGAIN_INPUT_ID = "#repeatedPassword";
+    protected final String ROOT_ELEMENT = "id=customerForm";
 
-    private static final String REGISTER_BUTTON_XPATH = "//input[@value='Register']";
-
-    private final Locator registerButton;
+    protected final Locator usernameInput;
+    protected final Locator passwordInput;
+    protected final Locator passwordAgainInput;
 
     protected CustomerForm(final PwFactory pwFactory) {
         super(pwFactory);
 
-        registerButton = rootElement.locator(REGISTER_BUTTON_XPATH);
-    }
-    @Override
-    protected Locator defineRootElement(final PwFactory pwFactory) {
-        // Must define the root element — compiler will force this
-        return pwFactory.getPage().locator("id=customerForm");
+        usernameInput      = rootElement.locator("#customer\\.username");
+        passwordInput      = rootElement.locator("#customer\\.password");
+        passwordAgainInput = rootElement.locator("#repeatedPassword");
     }
 
     @Override
-    public boolean isPresent() {
-        return registerButton.isVisible();
-    }
-
-    @Override
-    public void sendFormButton() {
-        return; //todo
+    protected String getDefineRootElement() {
+        return ROOT_ELEMENT;
     }
 
     public Locator getUsernameInputField() {
-        return rootElement.locator(USERNAME_INPUT_ID);
+        return usernameInput;
     }
 
     public Locator getPasswordInputField() {
-        return rootElement.locator(PASSWORD_INPUT_ID);
+        return passwordInput;
     }
 
     public Locator getPasswordAgainInputField() {
-        return rootElement.locator(PASSWORD_AGAIN_INPUT_ID);
-    }
-
-    public Locator getRegisterButton() {
-        return rootElement.locator(REGISTER_BUTTON_XPATH);
+        return passwordAgainInput;
     }
 }

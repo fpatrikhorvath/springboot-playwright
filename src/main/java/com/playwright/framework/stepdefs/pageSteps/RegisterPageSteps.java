@@ -8,6 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 
 public class RegisterPageSteps extends TestCore {
 
@@ -30,6 +32,6 @@ public class RegisterPageSteps extends TestCore {
 
     @Then("verify that the user {word} is registered")
     public void verifyThatTheUserIsRegistered(final String identifier) {
-        getRegisterPageHandler().isLogoutButtonVisible();
+        assertTrue(getRegisterPageHandler().isLogoutButtonVisible());
     }
 }

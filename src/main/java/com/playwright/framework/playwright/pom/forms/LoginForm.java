@@ -8,12 +8,7 @@ import org.springframework.stereotype.Component;
 @ScenarioScope
 @Component
 public class LoginForm extends BaseForm {
-
-    private static final String USERNAME_INPUT_XPATH                  = "//input[@name='username']";
-    private static final String PASSWORD_INPUT_XPATH                  = "//input[@name='password']";
-    private static final String LOGIN_BUTTON_XPATH                    = "//input[@type='submit']";
-    private static final String NAVIGATE_FORGOT_PASSWORD_BUTTON_XPATH = "//a[@href='lookup.htm']";
-    private static final String NAVIGATE_REGISTER_BUTTON_XPATH        = "//a[@href='register.htm']";
+    protected final String ROOT_ELEMENT = "id=loginPanel";
 
     final Locator usernameInput;
     final Locator passwordInput;
@@ -23,26 +18,22 @@ public class LoginForm extends BaseForm {
 
     protected LoginForm(final PwFactory pwFactory) {
         super(pwFactory);
-        usernameInput                = rootElement.locator(USERNAME_INPUT_XPATH);
-        passwordInput                = rootElement.locator(PASSWORD_INPUT_XPATH);
-        loginButton                  = rootElement.locator(LOGIN_BUTTON_XPATH);
-        navigateForgotPasswordButton = rootElement.locator(NAVIGATE_FORGOT_PASSWORD_BUTTON_XPATH);
-        navigateRegisterButton       = rootElement.locator(NAVIGATE_REGISTER_BUTTON_XPATH);
+
+        usernameInput                = rootElement.locator("//input[@name='username']");
+        passwordInput                = rootElement.locator("//input[@name='password']");
+        loginButton                  = rootElement.locator("//input[@type='submit']");
+        navigateForgotPasswordButton = rootElement.locator("//a[@href='lookup.htm']");
+        navigateRegisterButton       = rootElement.locator("//a[@href='register.htm']");
     }
 
     @Override
-    protected Locator defineRootElement(final PwFactory pwFactory) {
-        return null;
+    protected String getDefineRootElement() {
+        return ROOT_ELEMENT;
     }
 
     @Override
     public boolean isPresent() {
-        //add wait time
+        // add wait time
         return loginButton.isVisible();
-    }
-
-    @Override
-    public void sendFormButton() {
-        return; //todo
     }
 }
