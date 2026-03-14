@@ -9,8 +9,7 @@ import io.cucumber.java.Scenario;
 public class Hooks extends TestCore {
     private final PwFactory pwFactory;
 
-    public Hooks(final ScenarioContext scenarioContext,
-                 final ParabankPageStore parabankPageStore,
+    public Hooks(final ScenarioContext scenarioContext, final ParabankPageStore parabankPageStore,
                  final PwFactory pwFactory) {
         super(scenarioContext, parabankPageStore);
         this.pwFactory = pwFactory;

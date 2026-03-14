@@ -18,7 +18,6 @@ public class UpdateProfileForm extends BaseForm {
     protected final Locator zipCodeInput;
     protected final Locator phoneInput;
     protected final Locator ssnInput;
-    protected final Locator registerButton;
 
     protected UpdateProfileForm(final PwFactory pwFactory) {
         super(pwFactory);
@@ -31,7 +30,6 @@ public class UpdateProfileForm extends BaseForm {
         zipCodeInput   = rootElement.locator("#customer\\.address\\.zipCode");
         phoneInput     = rootElement.locator("#customer\\.phoneNumber");
         ssnInput       = rootElement.locator("#customer\\.ssn");
-        registerButton = rootElement.locator("//input[@value='Register']");
     }
 
     @Override
@@ -41,7 +39,7 @@ public class UpdateProfileForm extends BaseForm {
 
     @Override
     public boolean isPresent() {
-        return registerButton.isVisible();
+        return firstNameInput.isVisible();
     }
 
     public Locator getFirstNameInput() {
@@ -74,9 +72,5 @@ public class UpdateProfileForm extends BaseForm {
 
     public Locator getSsnInput() {
         return ssnInput;
-    }
-
-    public Locator getRegisterButton() {
-        return registerButton;
     }
 }

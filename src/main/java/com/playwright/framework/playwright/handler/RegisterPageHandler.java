@@ -52,7 +52,7 @@ public class RegisterPageHandler extends BasePageHandler {
         registerPage.getCustomerForm().getPasswordInputField().fill(user.getPassword());
         registerPage.getCustomerForm().getPasswordAgainInputField().fill(user.getPassword());
 
-        registerPage.getCustomerForm().getRegisterButton().click();
+        registerPage.getCustomerForm().getSendButton().click();
     }
 
     public boolean isLogoutButtonVisible() {

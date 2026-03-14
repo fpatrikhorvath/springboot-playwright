@@ -9,8 +9,7 @@ public abstract class RestConfig {
     protected final String protocol;
     protected final String ip;
 
-    public RestConfig(final String protocol,
-                      final String ip) {
+    public RestConfig(final String protocol, final String ip) {
         this.protocol = protocol;
         this.ip       = ip;
     }
