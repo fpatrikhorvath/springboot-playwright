@@ -3,6 +3,8 @@ package com.playwright.framework.stepdefs;
 import com.playwright.framework.context.ScenarioContext;
 import com.playwright.framework.playwright.handler.IndexPageHandler;
 import com.playwright.framework.playwright.handler.RegisterPageHandler;
+import com.playwright.framework.playwright.pom.IndexPage;
+import com.playwright.framework.playwright.pom.RegisterPage;
 import com.playwright.framework.stores.ParabankPageStore;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootContextLoader;
@@ -25,11 +27,11 @@ public class TestCore {
         this.parabankPageStore = parabankPageStore;
     }
 
-    protected IndexPageHandler getIndexPageHandler() {
-        return parabankPageStore.getIndexPageHandler();
+    protected IndexPage getIndexPage() {
+        return parabankPageStore.getIndexPage();
     }
 
-    protected RegisterPageHandler getRegisterPageHandler() {
-        return parabankPageStore.getRegisterPageHandler();
+    protected RegisterPage getRegisterPage() {
+        return parabankPageStore.getRegisterPage();
     }
 }

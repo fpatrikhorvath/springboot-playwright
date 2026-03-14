@@ -19,19 +19,19 @@ public class RegisterPageSteps extends TestCore {
 
     @Given("I am on the register page")
     public void iAmOnTheRegisterPage() {
-        getRegisterPageHandler().open();
-        getRegisterPageHandler().isAt();
+        getRegisterPage().open();
+        getRegisterPage().isAt();
     }
 
     @When("I sign up with correct credentials and store it as {word}")
     public void iSignUpWithCorrectCredentialsAndStoreItAs(final String identifier) {
-        final ContextUser user = getRegisterPageHandler().initContextUser();
-        getRegisterPageHandler().fillRegisterForm(user);
+        final ContextUser user = getRegisterPage().initContextUser();
+        getRegisterPage().fillRegisterForm(user);
         scenarioContext.storeContextObject(identifier, user);
     }
 
     @Then("verify that the user {word} is registered")
     public void verifyThatTheUserIsRegistered(final String identifier) {
-        assertTrue(getRegisterPageHandler().isLogoutButtonVisible());
+        assertTrue(getRegisterPage().isLogoutButtonVisible());
     }
 }

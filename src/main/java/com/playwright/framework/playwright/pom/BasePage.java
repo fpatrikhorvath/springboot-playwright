@@ -6,10 +6,12 @@ import io.cucumber.spring.ScenarioScope;
 
 @ScenarioScope
 public abstract class BasePage {
+    protected final PwFactory pwFactory;
     protected final Page page;
 
-    protected BasePage(final PwFactory pwFactory) {
-        this.page = pwFactory.getPage();
+    protected BasePage( final PwFactory pwFactory) {
+        this.pwFactory = pwFactory;
+        this.page      = pwFactory.getPage();
     }
 
 }
