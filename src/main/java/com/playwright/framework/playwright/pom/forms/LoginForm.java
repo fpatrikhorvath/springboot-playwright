@@ -23,11 +23,16 @@ public class LoginForm extends BaseForm {
 
     protected LoginForm(final PwFactory pwFactory) {
         super(pwFactory);
-        usernameInput                = page.locator(USERNAME_INPUT_XPATH);
-        passwordInput                = page.locator(PASSWORD_INPUT_XPATH);
-        loginButton                  = page.locator(LOGIN_BUTTON_XPATH);
-        navigateForgotPasswordButton = page.locator(NAVIGATE_FORGOT_PASSWORD_BUTTON_XPATH);
-        navigateRegisterButton       = page.locator(NAVIGATE_REGISTER_BUTTON_XPATH);
+        usernameInput                = rootElement.locator(USERNAME_INPUT_XPATH);
+        passwordInput                = rootElement.locator(PASSWORD_INPUT_XPATH);
+        loginButton                  = rootElement.locator(LOGIN_BUTTON_XPATH);
+        navigateForgotPasswordButton = rootElement.locator(NAVIGATE_FORGOT_PASSWORD_BUTTON_XPATH);
+        navigateRegisterButton       = rootElement.locator(NAVIGATE_REGISTER_BUTTON_XPATH);
+    }
+
+    @Override
+    protected Locator defineRootElement(final PwFactory pwFactory) {
+        return null;
     }
 
     @Override

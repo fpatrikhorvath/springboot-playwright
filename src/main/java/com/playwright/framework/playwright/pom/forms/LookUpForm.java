@@ -33,15 +33,20 @@ public class LookUpForm extends BaseForm {
     protected LookUpForm(final PwFactory pwFactory) {
         super(pwFactory);
 
-        firstNameInput = page.locator(FIRST_NAME_INPUT_ID);
-        lastNameInput  = page.locator(LAST_NAME_INPUT_ID);
-        streetInput    = page.locator(STREET_INPUT_ID);
-        cityInput      = page.locator(CITY_INPUT_ID);
-        stateInput     = page.locator(STATE_INPUT_ID);
-        zipCodeInput   = page.locator(ZIP_CODE_INPUT_ID);
-        phoneInput     = page.locator(PHONE_INPUT_ID);
-        ssnInput       = page.locator(SSN_INPUT_ID);
-        registerButton = page.locator(REGISTER_BUTTON_XPATH);
+        firstNameInput = rootElement.locator(FIRST_NAME_INPUT_ID);
+        lastNameInput  = rootElement.locator(LAST_NAME_INPUT_ID);
+        streetInput    = rootElement.locator(STREET_INPUT_ID);
+        cityInput      = rootElement.locator(CITY_INPUT_ID);
+        stateInput     = rootElement.locator(STATE_INPUT_ID);
+        zipCodeInput   = rootElement.locator(ZIP_CODE_INPUT_ID);
+        phoneInput     = rootElement.locator(PHONE_INPUT_ID);
+        ssnInput       = rootElement.locator(SSN_INPUT_ID);
+        registerButton = rootElement.locator(REGISTER_BUTTON_XPATH);
+    }
+
+    @Override
+    protected Locator defineRootElement(final PwFactory pwFactory) {
+        return null;
     }
 
     @Override

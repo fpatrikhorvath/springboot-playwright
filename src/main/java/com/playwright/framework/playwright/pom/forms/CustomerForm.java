@@ -20,7 +20,12 @@ public class CustomerForm extends LookUpForm {
     protected CustomerForm(final PwFactory pwFactory) {
         super(pwFactory);
 
-        registerButton = page.locator(REGISTER_BUTTON_XPATH);
+        registerButton = rootElement.locator(REGISTER_BUTTON_XPATH);
+    }
+    @Override
+    protected Locator defineRootElement(final PwFactory pwFactory) {
+        // Must define the root element — compiler will force this
+        return pwFactory.getPage().locator("id=customerForm");
     }
 
     @Override
@@ -34,18 +39,18 @@ public class CustomerForm extends LookUpForm {
     }
 
     public Locator getUsernameInputField() {
-        return page.locator(USERNAME_INPUT_ID);
+        return rootElement.locator(USERNAME_INPUT_ID);
     }
 
     public Locator getPasswordInputField() {
-        return page.locator(PASSWORD_INPUT_ID);
+        return rootElement.locator(PASSWORD_INPUT_ID);
     }
 
     public Locator getPasswordAgainInputField() {
-        return page.locator(PASSWORD_AGAIN_INPUT_ID);
+        return rootElement.locator(PASSWORD_AGAIN_INPUT_ID);
     }
 
     public Locator getRegisterButton() {
-        return page.locator(REGISTER_BUTTON_XPATH);
+        return rootElement.locator(REGISTER_BUTTON_XPATH);
     }
 }
