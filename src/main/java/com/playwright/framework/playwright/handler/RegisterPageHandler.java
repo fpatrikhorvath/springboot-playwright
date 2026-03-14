@@ -14,6 +14,7 @@ import java.util.NoSuchElementException;
 
 @ScenarioScope
 @Service
+//TODO WE DONT NEED THIS
 public class RegisterPageHandler extends BasePageHandler {
     private static final Logger LOG       = LogManager.getLogger(RegisterPageHandler.class);
     private static final String PAGE_NAME = "register";
@@ -30,62 +31,41 @@ public class RegisterPageHandler extends BasePageHandler {
 
     @Override
     public boolean isAt() {
-        return registerPage.getRegisterButton().isVisible();
+        return registerPage.getCustomerForm().getRegisterButton().isVisible();
     }
 
     public ContextUser initContextUser() {
-        ContextUser user = new ContextUser();
-
-        user.setFirstName(fakerService.name().firstName());
-        user.setLastName(fakerService.name().lastName());
-        user.setStreet(fakerService.address().streetAddress());
-        user.setCity(fakerService.address().city());
-        user.setState(fakerService.address().state());
-        user.setZipCode(fakerService.address().zipCode());
-        user.setPhone(fakerService.phoneNumber().phoneNumber());
-        user.setSsn(fakerService.generateSsn());
-
-        user.setUsername(fakerService.name().username());
-        user.setPassword(fakerService.generatePassword());
-
-        LOG.info("User: {}", user);
-
-        return user;
+        return new ContextUser(fakerService);
     }
 
     public void fillRegisterForm(final ContextUser user) {
+        registerPage.getCustomerForm().getFirstNameInput().fill(user.getFirstName());
+        registerPage.getCustomerForm().getLastNameInput().fill(user.getLastName());
+        registerPage.getCustomerForm().getStreetInput().fill(user.getStreet());
+        registerPage.getCustomerForm().getCityInput().fill(user.getCity());
+        registerPage.getCustomerForm().getStateInput().fill(user.getFirstName());
+        registerPage.getCustomerForm().getZipCodeInput().fill(String.valueOf(user.getZipCode()));
+        registerPage.getCustomerForm().getPhoneInput().fill(String.valueOf(user.getPhone()));
+        registerPage.getCustomerForm().getSsnInput().fill(user.getSsn());
 
-        registerPage.getFirstNameInputField().fill(user.getFirstName());
-        registerPage.getLastNameInputField().fill(user.getLastName());
-        registerPage.getStreetInputField().fill(user.getStreet());
-        registerPage.getCityInputField().fill(user.getCity());
-        registerPage.getStateInputField().fill(user.getFirstName());
-        registerPage.getZipCodeInputField().fill(String.valueOf(user.getZipCode()));
-        registerPage.getPhoneInputField().fill(String.valueOf(user.getPhone()));
-        registerPage.getSsnInputField().fill(user.getSsn());
+        registerPage.getCustomerForm().getUsernameInputField().fill(user.getUsername());
+        registerPage.getCustomerForm().getPasswordInputField().fill(user.getPassword());
+        registerPage.getCustomerForm().getPasswordAgainInputField().fill(user.getPassword());
 
-        registerPage.getUsernameInputField().fill(user.getUsername());
-        registerPage.getPasswordInputField().fill(user.getPassword());
-        registerPage.getPasswordAgainInputField().fill(user.getPassword());
-
-        registerPage.getRegisterButton().click();
+        registerPage.getCustomerForm().getRegisterButton().click();
     }
 
     public void logOut() {
-        registerPage.getLogoutButton().click();
+        //todo
     }
 
     public boolean isLogoutButtonVisible() {
-        try {
-            return registerPage.getLogoutButton().isVisible();
-        } catch (NoSuchElementException nsee) {
-            return false;
-        }
+       return false;
     }
 
 
     public String getWelcomeMessage() {
-        return registerPage.getWelcomeTitle().textContent();
+        return "";
     }
 
     public void open() {

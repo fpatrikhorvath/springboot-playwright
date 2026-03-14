@@ -53,4 +53,40 @@ public class LookUpForm extends BaseForm {
     public void sendFormButton() {
         return; //todo
     }
+
+    public Locator getFirstNameInput() {
+        return firstNameInput;
+    }
+
+    public Locator getLastNameInput() {
+        return lastNameInput;
+    }
+
+    public Locator getStreetInput() {
+        return streetInput;
+    }
+
+    public Locator getCityInput() {
+        return cityInput;
+    }
+
+    public Locator getStateInput() {
+        return stateInput;
+    }
+
+    public Locator getZipCodeInput() {
+        return zipCodeInput;
+    }
+
+    public Locator getPhoneInput() {
+        return phoneInput;
+    }
+
+    public Locator getSsnInput() {
+        return ssnInput;
+    }
+
+    public Locator getRegisterButton() {
+        return registerButton;
+    }
 }

@@ -1,18 +1,31 @@
 package com.playwright.framework.playwright.model;
 
+import com.playwright.framework.service.util.ExtendedFakerService;
+
 public class ContextUser {
     private String firstName;
     private String lastName;
     private String street;
     private String city;
-    private String State;
+    private String state;
     private String zipCode;
     private String phone;
     private String ssn;
     private String username;
     private String password;
 
-    public ContextUser() {
+    public ContextUser(final ExtendedFakerService fakerService) {;
+        this.setFirstName(fakerService.name().firstName());
+        this.setLastName(fakerService.name().lastName());
+        this.setStreet(fakerService.address().streetAddress());
+        this.setCity(fakerService.address().city());
+        this.setState(fakerService.address().state());
+        this.setZipCode(fakerService.address().zipCode());
+        this.setPhone(fakerService.phoneNumber().phoneNumber());
+        this.setSsn(fakerService.generateSsn());
+
+        this.setUsername(fakerService.name().username());
+        this.setPassword(fakerService.generatePassword());
     }
 
     public String getFirstName() {
@@ -48,11 +61,11 @@ public class ContextUser {
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public void setState(final String state) {
-        State = state;
+        this.state = state;
     }
 
     public String getZipCode() {
@@ -97,18 +110,17 @@ public class ContextUser {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("firstName='").append(firstName).append('\'');
-        sb.append(", lastName='").append(lastName).append('\'');
-        sb.append(", street='").append(street).append('\'');
-        sb.append(", city='").append(city).append('\'');
-        sb.append(", State='").append(State).append('\'');
-        sb.append(", zipCode=").append(zipCode);
-        sb.append(", phone='").append(phone).append('\'');
-        sb.append(", ssn='").append(ssn).append('\'');
-        sb.append(", username='").append(username).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "ContextUser{" +
+               "firstName='" + firstName + '\'' +
+               ", lastName='" + lastName + '\'' +
+               ", street='" + street + '\'' +
+               ", city='" + city + '\'' +
+               ", state='" + state + '\'' +
+               ", zipCode='" + zipCode + '\'' +
+               ", phone='" + phone + '\'' +
+               ", ssn='" + ssn + '\'' +
+               ", username='" + username + '\'' +
+               ", password='" + password + '\'' +
+               '}';
     }
 }

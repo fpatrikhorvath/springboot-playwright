@@ -23,7 +23,7 @@ public class RegisterPageSteps extends TestCore {
 
     @When("I sign up with correct credentials and store it as {word}")
     public void iSignUpWithCorrectCredentialsAndStoreItAs(final String identifier) {
-        ContextUser user = getRegisterPageHandler().initContextUser();
+        final ContextUser user = getRegisterPageHandler().initContextUser();
         getRegisterPageHandler().fillRegisterForm(user);
         scenarioContext.storeContextObject(identifier, user);
     }

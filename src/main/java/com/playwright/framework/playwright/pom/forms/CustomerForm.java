@@ -32,4 +32,20 @@ public class CustomerForm extends LookUpForm {
     public void sendFormButton() {
         return; //todo
     }
+
+    public Locator getUsernameInputField() {
+        return page.locator(USERNAME_INPUT_ID);
+    }
+
+    public Locator getPasswordInputField() {
+        return page.locator(PASSWORD_INPUT_ID);
+    }
+
+    public Locator getPasswordAgainInputField() {
+        return page.locator(PASSWORD_AGAIN_INPUT_ID);
+    }
+
+    public Locator getRegisterButton() {
+        return page.locator(REGISTER_BUTTON_XPATH);
+    }
 }
