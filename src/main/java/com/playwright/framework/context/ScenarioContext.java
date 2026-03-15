@@ -21,5 +21,4 @@ public class ScenarioContext {
     public Object getContextObject(final String key) {
         return contextObjectMap.get(key);
     }
-
 }

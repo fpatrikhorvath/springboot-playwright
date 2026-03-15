@@ -21,9 +21,6 @@ public abstract class BaseForm {
         this.sendButton = rootElement.locator("//input[@type='submit']");
     }
 
-    /**
-     * Concrete subclasses MUST implement this to define their root element
-     */
     protected abstract String getDefineRootElement();
 
     public boolean isPresent() {
