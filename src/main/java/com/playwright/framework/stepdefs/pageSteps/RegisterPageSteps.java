@@ -27,13 +27,16 @@ public class RegisterPageSteps extends TestCore {
 
     @When("I sign up with correct credentials and store it as {word}")
     public void iSignUpWithCorrectCredentialsAndStoreItAs(final String identifier) {
+
         final ContextUser user = registerPage.initContextUser();
         registerPage.fillRegisterForm(user);
+
         scenarioContext.storeContextObject(identifier, user);
     }
 
     @Then("verify that the user {word} is registered")
     public void verifyThatTheUserIsRegistered(final String identifier) {
-        assertTrue("Log out button is not visible on the UI", registerPage.isLogoutButtonVisible());
+        final ContextUser user  = (ContextUser) scenarioContext.getContextObject(identifier);
+        assertTrue("User is not registered!", registerPage.isUserRegistered(user.getUsername()));
     }
 }

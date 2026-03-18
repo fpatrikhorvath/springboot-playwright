@@ -6,6 +6,7 @@ import com.playwright.framework.playwright.model.ContextUser;
 import com.playwright.framework.playwright.pom.forms.CustomerForm;
 import com.playwright.framework.service.util.ExtendedFakerService;
 import io.cucumber.spring.ScenarioScope;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @ScenarioScope
@@ -40,8 +41,10 @@ public class RegisterPage extends BasePage {
         customerForm.sendForm();
     }
 
-    public boolean isLogoutButtonVisible() {
-        return false;
+    public boolean isUserRegistered(final String username) {
+        final String locator = StringUtils.replace("//h1[@class='title' and text()='Welcome {{username}}']",
+                                                   "{{username}}", username);
+        return page.locator(locator).isVisible();
     }
 
     public void open() {
