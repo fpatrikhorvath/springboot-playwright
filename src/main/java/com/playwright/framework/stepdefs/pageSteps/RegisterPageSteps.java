@@ -34,6 +34,6 @@ public class RegisterPageSteps extends TestCore {
 
     @Then("verify that the user {word} is registered")
     public void verifyThatTheUserIsRegistered(final String identifier) {
-        assertTrue(registerPage.isLogoutButtonVisible());
+        assertTrue("Log out button is not visible on the UI", registerPage.isLogoutButtonVisible());
     }
 }

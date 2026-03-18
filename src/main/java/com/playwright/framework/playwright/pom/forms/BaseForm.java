@@ -14,8 +14,7 @@ public abstract class BaseForm {
         this.rootElement = pwFactory.getPage().locator(getDefineRootElement());
 
         if (this.rootElement == null) {
-            throw new IllegalStateException(
-                    "Subclasses must provide a non-null root element via defineRootElement()");
+            throw new IllegalStateException("Subclasses must provide a non-null root element via defineRootElement()");
         }
 
         this.sendButton = rootElement.locator("//input[@type='submit']");
