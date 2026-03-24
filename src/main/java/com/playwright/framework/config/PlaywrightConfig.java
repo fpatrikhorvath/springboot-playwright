@@ -10,9 +10,7 @@ public class PlaywrightConfig {
     private final boolean isHeadless;
     private final long    timeout;
 
-    public PlaywrightConfig(final String browserType,
-                            final boolean isHeadless,
-                            final long timeout) {
+    public PlaywrightConfig(final String browserType, final boolean isHeadless, final long timeout) {
         this.browserType = browserType;
         this.isHeadless  = isHeadless;
         this.timeout     = timeout;

@@ -9,9 +9,7 @@ public class ParabankConfig extends RestConfig {
 
     private final String path;
 
-    public ParabankConfig(final String protocol,
-                          final String ip,
-                          final String path) {
+    public ParabankConfig(final String protocol, final String ip, final String path) {
         super(protocol, ip);
         this.path = path;
     }

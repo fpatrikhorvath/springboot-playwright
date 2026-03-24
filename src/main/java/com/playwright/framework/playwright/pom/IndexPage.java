@@ -1,41 +1,22 @@
 package com.playwright.framework.playwright.pom;
 
-import com.microsoft.playwright.Locator;
 import com.playwright.framework.playwright.PwFactory;
+import com.playwright.framework.playwright.pom.forms.LoginForm;
 import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Component;
 
 @ScenarioScope
 @Component
 public class IndexPage extends BasePage {
-    private static final String USERNAME_INPUT_XPATH         = "//input[@name='username']";
-    private static final String PASSWORD_INPUT_XPATH         = "//input[@name='password']";
-    private static final String LOGIN_BUTTON_XPATH           = "//input[@type='submit']";
-    private static final String FORGOT_PASSWORD_BUTTON_XPATH = "//a[@href='lookup.htm']";
-    private static final String REGISTER_BUTTON_XPATH        = "//a[@href='register.htm']";
+    private final LoginForm loginForm;
 
-    protected IndexPage(final PwFactory pwFactory) {
+    protected IndexPage(final PwFactory pwFactory, final LoginForm loginForm) {
         super(pwFactory);
+        this.loginForm = loginForm;
     }
 
-
-    public Locator getUsernameInput() {
-        return page.locator(USERNAME_INPUT_XPATH);
-    }
-
-    public Locator getPasswordInput() {
-        return page.locator(PASSWORD_INPUT_XPATH);
-    }
-
-    public Locator getLoginButton() {
-        return page.locator(LOGIN_BUTTON_XPATH);
-    }
-
-    public Locator getForgotPassword() {
-        return page.locator(FORGOT_PASSWORD_BUTTON_XPATH);
-    }
-
-    public Locator getRegisterButton() {
-        return page.locator(REGISTER_BUTTON_XPATH);
+    public boolean isLoggedIn() {
+        //add wait
+        return loginForm.isPresent();
     }
 }

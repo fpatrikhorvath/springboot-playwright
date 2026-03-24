@@ -18,16 +18,13 @@ public class PwFactory implements DisposableBean {
     private Playwright playwright = null;
     private Page       page       = null;
 
-    public PwFactory(final ParabankConfig parabankConfig,
-                     final PlaywrightConfig playwrightConfig) {
+    public PwFactory(final ParabankConfig parabankConfig, final PlaywrightConfig playwrightConfig) {
         this.parabankConfig   = parabankConfig;
         this.playwrightConfig = playwrightConfig;
 
         if (!PwInitializationListener.isInitialized()) {
             PwInitializationListener.setIsInitialized(true);
-
             playwright = Playwright.create();
-
             BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
             launchOptions.setHeadless(playwrightConfig.isHeadless());
 
@@ -37,12 +34,10 @@ public class PwFactory implements DisposableBean {
                 case "webkit" -> browser = getWebkitBrowser(launchOptions);
                 default -> throw new RuntimeException("Not a browser type");
             }
-
             BrowserContext context = browser.newContext();
             page = context.newPage();
         }
     }
-
 
     public void goTo(final String pageName) {
         String url = parabankConfig.getUrl().replace("{pageName}", pageName);
