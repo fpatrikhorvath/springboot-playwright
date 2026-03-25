@@ -2,8 +2,7 @@ package com.playwright.framework.stepdefs.pageSteps;
 
 import com.playwright.framework.context.ScenarioContext;
 import com.playwright.framework.playwright.model.ContextUser;
-import com.playwright.framework.playwright.pom.IndexPage;
-import com.playwright.framework.playwright.pom.RegisterPage;
+import com.playwright.framework.playwright.PageObjectFactory;
 import com.playwright.framework.stepdefs.TestCore;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,9 +13,8 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class RegisterPageSteps extends TestCore {
 
-    public RegisterPageSteps(final ScenarioContext scenarioContext, final IndexPage indexPage,
-                             final RegisterPage registerPage) {
-        super(scenarioContext, indexPage, registerPage);
+    public RegisterPageSteps(final ScenarioContext scenarioContext, final PageObjectFactory pageObjectFactory) {
+        super(scenarioContext, pageObjectFactory);
     }
 
     @Given("I am on the register page")
