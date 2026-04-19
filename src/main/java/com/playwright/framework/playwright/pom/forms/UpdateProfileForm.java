@@ -39,6 +39,7 @@ public class UpdateProfileForm extends BaseForm {
 
     @Override
     public boolean isPresent() {
+        firstNameInput.waitFor();
         return firstNameInput.isVisible();
     }
 

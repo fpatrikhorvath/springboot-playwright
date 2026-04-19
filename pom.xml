@@ -24,7 +24,7 @@
         <spring-boot.version>3.5.13</spring-boot.version>
         <playwright.version>1.45.0</playwright.version>
         <jackson.version>2.15.4</jackson.version>
-        <faker.version>1.0.0</faker.version>
+        <datafaker.version>2.2.2</datafaker.version>
 
         <jna.version>5.14.0</jna.version>
     </properties>
@@ -92,9 +92,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>${faker.version}</version>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>${datafaker.version}</version>
         </dependency>
 
         <dependency>
