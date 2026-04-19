@@ -19,4 +19,9 @@ public class IndexPage extends BasePage {
         //add wait
         return loginForm.isPresent();
     }
+
+    @Override
+    public boolean isAt() {
+        return false;
+    }
 }

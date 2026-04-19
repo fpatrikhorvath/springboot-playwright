@@ -6,8 +6,8 @@ import com.playwright.framework.playwright.model.ContextUser;
 import com.playwright.framework.playwright.pom.forms.CustomerForm;
 import com.playwright.framework.service.util.ExtendedFakerService;
 import io.cucumber.spring.ScenarioScope;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 @ScenarioScope
 @Component
@@ -30,6 +30,7 @@ public class RegisterPage extends BasePage {
         return customerForm.isPresent();
     }
 
+
     public ContextUser initContextUser() {
         return new ContextUser(fakerService);
     }
@@ -42,8 +43,9 @@ public class RegisterPage extends BasePage {
     }
 
     public boolean isUserRegistered(final String username) {
-        final String locator = StringUtils.replace("//h1[@class='title' and text()='Welcome {{username}}']",
-                                                   "{{username}}", username);
+        final String locator = StringUtils
+                .replace("//h1[@class='title' and text()='Welcome {{username}}']", "{{username}}", username);
+        page.locator(locator).waitFor();
         return page.locator(locator).isVisible();
     }
 

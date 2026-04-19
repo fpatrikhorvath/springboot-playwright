@@ -13,4 +13,6 @@ public abstract class BasePage {
         this.pwFactory = pwFactory;
         this.page      = pwFactory.getPage();
     }
+
+    public abstract boolean isAt();
 }

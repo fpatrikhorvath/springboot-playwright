@@ -1,7 +1,6 @@
 # Spring.boot framework with playwright
 
-Recently I started to work with playwright, so I created this framework to practice & provide an alternative implementation model.
-Please note that this design is the oldest version - first design
+Recently I started to work with playwright, so I created this framework to practice & provide an implementation model.
 
 ## Installation
 

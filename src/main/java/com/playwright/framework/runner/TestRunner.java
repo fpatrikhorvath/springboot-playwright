@@ -5,10 +5,10 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"classpath:features"},
-        glue = {"com.playwright.framework.stepdefs"},
+        glue = "com.playwright.framework.stepdefs",
+        plugin = {"pretty"},
         tags = "not @bug",
-        plugin = "html:target/report.html"
+        monochrome = true
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
