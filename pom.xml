@@ -25,8 +25,6 @@
         <playwright.version>1.45.0</playwright.version>
         <jackson.version>2.15.4</jackson.version>
         <datafaker.version>2.2.2</datafaker.version>
-
-        <jna.version>5.14.0</jna.version>
     </properties>
 
     <dependencies>
@@ -97,10 +95,5 @@
             <version>${datafaker.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna</artifactId>
-            <version>${jna.version}</version>
-        </dependency>
     </dependencies>
 </project>

@@ -1,8 +1,8 @@
 package com.playwright.framework.stepdefs;
 
-import com.playwright.framework.context.ScenarioContext;
-import com.playwright.framework.playwright.pom.IndexPage;
+import com.playwright.framework.context.ScenarioCxt;
 import com.playwright.framework.playwright.PageObjectFactory;
+import com.playwright.framework.playwright.pom.IndexPage;
 import com.playwright.framework.playwright.pom.RegisterPage;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootContextLoader;
@@ -14,15 +14,15 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(loader = SpringBootContextLoader.class, value = {"classpath:spring.xml"})
 @SpringBootTest(classes = TestCore.class)
 public class TestCore {
-    protected final ScenarioContext scenarioContext;
+    protected final ScenarioCxt       cxt;
     protected final PageObjectFactory pageFactory;
-    protected final IndexPage indexPage;
-    protected final RegisterPage registerPage;
+    protected final IndexPage         indexPage;
+    protected final RegisterPage      registerPage;
 
-    public TestCore(final ScenarioContext scenarioContext, final PageObjectFactory pageFactory) {
-        this.scenarioContext = scenarioContext;
-        this.pageFactory = pageFactory;
-        this.indexPage= pageFactory.getPage(IndexPage.class);
-        this.registerPage= pageFactory.getPage(RegisterPage.class);
+    public TestCore(final ScenarioCxt scenarioContext, final PageObjectFactory pageFactory) {
+        this.cxt          = scenarioContext;
+        this.pageFactory  = pageFactory;
+        this.indexPage    = pageFactory.getPage(IndexPage.class);
+        this.registerPage = pageFactory.getPage(RegisterPage.class);
     }
 }

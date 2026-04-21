@@ -37,7 +37,7 @@ public class RegisterPage extends BasePage {
 
     public void fillRegisterForm(final ContextUser user) {
         customerForm.fill(user.getFirstName(), user.getLastName(), user.getStreet(), user.getCity(), user.getState(),
-                String.valueOf(user.getZipCode()), String.valueOf(user.getPhone()), user.getSsn(), user.getUsername(),
+                          String.valueOf(user.getZipCode()), String.valueOf(user.getPhone()), user.getSsn(), user.getUsername(),
                           user.getPassword());
         customerForm.sendForm();
     }

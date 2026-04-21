@@ -1,7 +1,6 @@
 package com.playwright.framework.stepdefs.pageSteps;
 
-import com.playwright.framework.context.ScenarioContext;
-import com.playwright.framework.playwright.model.ContextUser;
+import com.playwright.framework.context.ScenarioCxt;
 import com.playwright.framework.playwright.PageObjectFactory;
 import com.playwright.framework.stepdefs.TestCore;
 import io.cucumber.java.en.Given;
@@ -13,7 +12,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class RegisterPageSteps extends TestCore {
 
-    public RegisterPageSteps(final ScenarioContext scenarioContext, final PageObjectFactory pageObjectFactory) {
+    public RegisterPageSteps(final ScenarioCxt scenarioContext, final PageObjectFactory pageObjectFactory) {
         super(scenarioContext, pageObjectFactory);
     }
 
@@ -25,16 +24,13 @@ public class RegisterPageSteps extends TestCore {
 
     @When("I sign up with correct credentials and store it as {word}")
     public void iSignUpWithCorrectCredentialsAndStoreItAs(final String identifier) {
-
-        final ContextUser user = registerPage.initContextUser();
-        registerPage.fillRegisterForm(user);
-
-        scenarioContext.storeContextObject(identifier, user);
+        cxt.storeCxtUser(identifier, registerPage.initContextUser());
+        registerPage.fillRegisterForm(cxt.getCxtUser(identifier));
     }
 
     @Then("verify that the user {word} is registered")
     public void verifyThatTheUserIsRegistered(final String identifier) {
-        final ContextUser user  = (ContextUser) scenarioContext.getContextObject(identifier);
-        assertTrue("User is not registered!", registerPage.isUserRegistered(user.getUsername()));
+        assertTrue("User is not registered!",
+                   registerPage.isUserRegistered(cxt.getCxtUser(identifier).getUsername()));
     }
 }

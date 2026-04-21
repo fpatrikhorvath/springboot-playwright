@@ -14,7 +14,7 @@ public class ContextUser {
     private String username;
     private String password;
 
-    public ContextUser(final ExtendedFakerService fakerService) {;
+    public ContextUser(final ExtendedFakerService fakerService) {
         this.setFirstName(fakerService.name().firstName());
         this.setLastName(fakerService.name().lastName());
         this.setStreet(fakerService.address().streetAddress());
